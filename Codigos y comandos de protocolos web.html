@@ -1,0 +1,639 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Códigos y comandos de protocolos web </title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="216cb31a-40db-44ac-96bd-59826510600c" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">👩🏼‍💻</span></div><h1 class="page-title">Códigos y comandos de protocolos web </h1></header><div class="page-body"><h2 id="b3e4c828-b91c-4683-a9dc-978d671c7347" class="block-color-yellow">Códigos de respuesta FTP</h2><p id="4ae884a6-4f8d-4f5f-9357-b106806be964" class="">
+</p><p id="a25796fb-51fc-4e93-8c44-9eb822f8d11a" class="block-color-blue">El primer dígito se utiliza para indicar el resultado de la comunicación: </p><ul id="a63cd19f-0eed-4c53-af23-18f2066ffb16" class="block-color-blue bulleted-list"><li>2yz - respuesta Éxito</li></ul><ul id="d90c31b9-fff3-4a46-90f8-7070ea9d6db2" class="block-color-blue bulleted-list"><li>4yz o 5yz - No hay respuesta</li></ul><ul id="16334d67-87bc-48a4-83b0-e5389f03fb9a" class="block-color-blue bulleted-list"><li>1yz o 3yz - Un error o una respuesta incompleta</li></ul><p id="1596012c-8991-4680-b4f4-7b7fe714ebe0" class="block-color-blue">
+</p><p id="67a77418-aca3-43a2-86cc-3c96cf12247c" class="block-color-blue">El segundo dígito define la clase de error:</p><ul id="c633a0ca-5e59-485e-b520-5ba2cb7fc791" class="block-color-blue bulleted-list"><li>x0z - Error de sintaxis</li></ul><ul id="d9a0de37-d64a-456c-84ae-29d938c82f15" class="block-color-blue bulleted-list"><li>x1z - Respuesta a las solicitudes de información </li></ul><ul id="53b6da5b-b931-4c50-99ea-64398a58b6f9" class="block-color-blue bulleted-list"><li>x2z - Respuesta al control y conexiones de datos </li></ul><ul id="8e0ee137-83cf-4c3e-b496-1a4683c3456f" class="block-color-blue bulleted-list"><li>x3z - Respuestas sobre autenticación </li></ul><ul id="d3580e1f-31e6-471f-a79e-dc3bd19ebff7" class="block-color-blue bulleted-list"><li>x4z - No definido.</li></ul><ul id="89ab4f99-ffa9-49d7-8e33-08dbf5bab5cd" class="block-color-blue bulleted-list"><li>x5z - Códigos de estados del sistema de archivos del servidor. </li></ul><p id="305b63db-bb7e-49bb-98c0-db201eb277fe" class="block-color-blue">
+</p><p id="3e565f29-8ffe-4718-8723-cacea32571d8" class="block-color-blue">El tercer dígito del código de respuesta se utiliza para proporcionar detalles adicionales para cada una de las categorías definidas por el segundo dígito.</p><p id="d0320566-19a1-4fbd-bbf4-2ad3b7204443" class="">
+</p><h2 id="fda0ea1a-e0f5-44a2-af16-af62c8f16610" class="block-color-yellow">Comandos y códigos SMTP</h2><p id="b636f383-5bda-45a7-9428-b15f47a8ddbf" class="">
+</p><p id="ac9dfb0d-0154-4932-a1da-c2fe6813d223" class=""><strong><mark class="highlight-blue">Comandos SMTP</mark></strong></p><ul id="b8cf4fa3-6d35-4dc7-a5d8-a942aa8faa58" class="block-color-blue bulleted-list"><li>HELO, para abrir una sesión con el servidor</li></ul><ul id="9eaa4484-c25a-499d-84b8-1ea64afca957" class="block-color-blue bulleted-list"><li>EHLO, para abrir una sesión, en el caso de que el servidor soporte extensiones. </li></ul><ul id="c2f3c028-904e-4098-a358-507c0ab66238" class="block-color-blue bulleted-list"><li>MAIL FROM, para indicar quien envía el mensaje</li></ul><ul id="26b5809e-402c-4f86-95ca-fac1f8456ede" class="block-color-blue bulleted-list"><li>RCPT TO, para indicar el destinatario del mensaje</li></ul><ul id="07292ae5-5707-487a-a1de-3b4f57ef582f" class="block-color-blue bulleted-list"><li>DATA, para indicar el comienzo del mensaje, éste finalizará cuando haya una línea únicamente con un punto.</li></ul><ul id="3bee06b5-8da7-4bde-b6e4-07e30d952199" class="block-color-blue bulleted-list"><li>QUIT, para cerrar la sesión</li></ul><ul id="f19dfc61-2bf7-4078-95c9-3af8c95f5dd4" class="block-color-blue bulleted-list"><li>RSET Aborta la transacción en curso y borra todos los registros.</li></ul><ul id="139a514a-382c-4f55-b871-84bbab2c3932" class="block-color-blue bulleted-list"><li>SEND Inicia una transacción en la cual el mensaje se entrega a una terminal.</li></ul><ul id="b8d988e7-24d7-4a72-b159-7bd79c2e8a03" class="block-color-blue bulleted-list"><li>SOML El mensaje se entrega a un terminal o a un buzón.</li></ul><ul id="c4ea02ca-2fa8-40f8-86e2-18d6ff591795" class="block-color-blue bulleted-list"><li>SAML El mensaje se entrega a un terminal y a un buzón.</li></ul><ul id="0bcabe6d-9721-488f-8c6a-19181ba59180" class="block-color-blue bulleted-list"><li>VRFY Solicita al servidor la verificación de todo un argumento.</li></ul><ul id="6ec951f1-ab07-44d9-8570-8bd726143ca1" class="block-color-blue bulleted-list"><li>EXPN Solicita al servidor la confirmación del argumento.</li></ul><ul id="9427b89f-3d77-4876-a535-c154f5f839c6" class="block-color-blue bulleted-list"><li>HELP Permite solicitar información sobre un comando.</li></ul><ul id="8e907b98-4697-4577-bf98-c886839e1796" class="block-color-blue bulleted-list"><li>NOOP No decir nada, se emplea para mantener la sesión abierta</li></ul><ul id="c287d0f9-69e2-449a-b6ca-c91250ac37e8" class="block-color-blue bulleted-list"><li>TURN Solicita al servidor que intercambien los papeles (el servidor hace de cliente y el cliente de servidor).</li></ul><p id="3b4f9010-59c5-4225-b148-6edef3a109a3" class="">
+</p><p id="f82330a5-7ad8-4fbb-9938-12cbe3e7f182" class="block-color-blue"><strong>Códigos de respuesta SMTP:</strong></p><p id="3194d61f-44fa-4099-8124-b1b59b0ac719" class="">
+</p><p id="c54d47fb-5de5-40ad-a977-53a1c1963a59" class="block-color-blue">De los tres dígitos del código numérico, el primero indica la categoría de la respuesta, estando definidas las siguientes categorías:</p><ul id="3721efc5-bf99-4c6b-920b-2f85e19eb4f9" class="block-color-blue bulleted-list"><li>2XX, la operación solicitada ha sido concluida con éxito</li></ul><ul id="4aa06c05-210a-4697-a11e-02c706586b45" class="block-color-blue bulleted-list"><li>3XX, la orden ha sido aceptada, pero el servidor esta pendiente de que el cliente le envíe nuevos datos para terminar la operación</li></ul><ul id="b34f3703-e216-440f-b16b-a7bff60fae92" class="block-color-blue bulleted-list"><li>4XX, para una respuesta de error</li></ul><ul id="d2437de3-332d-418c-8859-153add713cc5" class="block-color-blue bulleted-list"><li>5XX, para indicar una condición de error permanente, por lo que no debe repetirse la orden</li></ul><p id="8ed709f2-d311-4bc3-9360-953b78594051" class="">
+</p><p id="08228041-b588-436f-8789-f8e5619c25a4" class="">
+</p><h2 id="50001fa9-03f8-46b0-9a98-f472718ecc1e" class="block-color-yellow">Comandos y códigos HTTP</h2><p id="84be1869-aedc-4b80-8748-062609eb9779" class="">
+</p><p id="40a27225-24c9-4b4f-87d0-d8128561d6b6" class="block-color-blue">Códigos de respuestas del servidor: </p><ul id="9671fa06-441a-482d-b6bc-2d89ca1bf86d" class="block-color-blue bulleted-list"><li>Códigos con formato 1xx: Respuestas informativas. Indica que la petición ha sido recibida y se está procesando.</li></ul><ul id="f3db70df-230d-4688-aedb-248c0a4cfa67" class="block-color-blue bulleted-list"><li>Códigos con formato 2xx: Respuestas correctas. Indica que la petición ha sido procesada correctamente.</li></ul><ul id="0c7417c8-6cc3-4e82-a7ba-9872c6b7cf4f" class="block-color-blue bulleted-list"><li>Códigos con formato 3xx: Respuestas de redirección. Indica que el cliente necesita realizar más acciones para finalizar la petición.</li></ul><ul id="be7cb488-10da-4bd3-87b0-b3b94c725129" class="block-color-blue bulleted-list"><li>Códigos con formato 4xx: Errores causados por el cliente. Indica que ha habido un error en el procesado de la petición a causa de que el cliente ha hecho algo mal.</li></ul><ul id="fb7a03fa-bd54-4008-9a95-c6c5f046a23a" class="block-color-blue bulleted-list"><li>Códigos con formato 5xx: Errores causados por el servidor. Indica que ha habido un error en el procesado de la petición a causa de un fallo en el servidor.</li></ul><p id="470f622d-b3ac-4323-a1bf-79631c01ac6e" class="">
+</p><p id="a15d79f2-acd2-4434-9f38-b79421ef4e9d" class="">
+</p></div></article></body></html>

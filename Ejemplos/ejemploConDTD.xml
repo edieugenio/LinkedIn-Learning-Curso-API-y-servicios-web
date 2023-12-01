@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ListUsers [
+ <!ELEMENT ListUsers (user+)>
+ <!ELEMENT user (nickname,firstname,lastname,email,phone*,image?)>
+ <!ATTLIST user user_id ID #REQUIRED>
+ <!ATTLIST user status (online|offline) #IMPLIED>
+ <!ELEMENT nickname (#PCDATA)>
+ <!ELEMENT firstname (#PCDATA)>
+ <!ELEMENT lastname (#PCDATA)>
+ <!ELEMENT email (#PCDATA)>
+ <!ELEMENT phone (#PCDATA)>
+ <!NOTATION JPG SYSTEM "image/jpeg">
+ <!ENTITY image EMPTY>
+ <!ATTLIST image 
+    image width CDATA "50"
+		height CDATA "50"
+    href ENTITY #REQUIRED>
+]>
+
+<ListUsers>
+
+	<user user_id="373636" status="online">
+	  <firstname><Claude</firstname>
+	  <lastname>Speed</lastname>
+	  <nickname>claude_02</nickname>
+	  <email>claude.sa@example.com</email>
+	  <phone>111-22-33-44</phone>
+	  <image href="photo_user.jpg">
+	</user>
+
+  <user user_id="107589" status="offline">
+	  <firstname><Martha</firstname>
+	  <lastname>Edwards</lastname>
+	  <nickname>marthaed</nickname>
+	  <email>martha@example.com</email>
+	</user>
+
+</ListUsers>

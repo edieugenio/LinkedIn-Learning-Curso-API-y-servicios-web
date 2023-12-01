@@ -1,0 +1,17 @@
+ListUsers.dtd 📄
+ 
+ <!ELEMENT ListUsers (user+)>
+ <!ELEMENT user (nickname,firstname,lastname,email,phone*,image?)>
+ <!ATTLIST user user_id ID #REQUIRED>
+ <!ATTLIST user status (online|offline) #IMPLIED>
+ <!ELEMENT nickname (#PCDATA)>
+ <!ELEMENT firstname (#PCDATA)>
+ <!ELEMENT lastname (#PCDATA)>
+ <!ELEMENT email (#PCDATA)>
+ <!ELEMENT phone (#PCDATA)>
+ <!NOTATION JPG SYSTEM "image/jpeg">
+ <!ENTITY image EMPTY>
+ <!ATTLIST image 
+    image width CDATA "50"
+		height CDATA "50"
+    href ENTITY #REQUIRED>

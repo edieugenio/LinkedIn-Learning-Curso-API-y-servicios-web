@@ -1,0 +1,33 @@
+```yaml
+%YAML 1.2 #esta es una directiva 
+---  #este es el comienzo de un documento
+YAML: YAML Ain't Markup Language
+
+Qué es: YAML es una técnica de serialización de datos: 
+
+Recursos YAML:
+
+  Javascript:
+  - js-yaml            # esto es un elemento de  una lista
+  - yaml               # lo que estás leyendo es un comentario 
+  - NimYAML            
+  - ocaml-syck        
+ 
+ 
+
+... #esto es el final de un documento, puedes añadir más poniendo 3 guiones debajo
+
+#Sintaxis YAML
+
+# Los contenidos YAML se describen utilizando UTF-8, UTF-16 ó UTF-30 (requerido para ser compatible con JSON)
+# Para tener una buena estructura, indentamos el código con espacios en blanco. Los tabuladores están prohibidos.
+# La representación en YAML se realiza con listas que comienzan por un guión (-) seguido de un único valor para cada línea, aunque podemos utilizar corchetes separando los valores por comas y espacios.
+# Los conjuntos de valores asociados a un elemento conocido como clave se presentan usando dos puntos (:) seguidos de un espacio. Cuando tenemos la forma "clave:valor" en un vector podemos representar todos los valores dentro de llaves separados entre sí.  Podemos usar un interrogante si queremos añadir caracteres especiales a los nombres de clave
+# Los valores únicos suelen aparecen sin entrecomillar, pero podemos presentarlos con comillas dobles o simples. Si usamos dobles comillas, los caracteres especiales se presentan con una barra inversa.
+# En YAML podemos tener múltiples documentos en un mismo archivo separándolos con tres  guiones al comienzo y tres puntos al final de cada uno.
+# Podemos insertar código XML, JSON o YAML dentro de un archivo YAML utilizando una barra recta ( | ) o un antilambda ( > ).
+# Si necesitamos repetir un bloque de código, podemos marcarlo con un ampersand (&) y luego hacer referencia a él usando un asterisco (*).
+# Los caracteres coma ( , ) y punto y coma ( ; ) deben ir seguidos de un espacio en blanco. De esta forma, se podrán representar valores que queramos que tengan estos caracteres.
+# Los comentarios vienen encabezados por una almohadilla (#) y continúan hasta el fin de la línea. Los comentarios deben separarse de otros tokens por caracteres de espacios en blanco. Si un caracter # aparece dentro de una string se toman como literales de signo #
+# Los nodos o  bloques de código se pueden etiquetar usando el signo de exclamación ( !! ). El nombre de la etiqueta puede ser una cadena de caracteres o una URI (URL interna).
+```
